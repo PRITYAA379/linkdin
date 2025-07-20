@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f0f0f, #1b3d1b);
+      background: linear-gradient(to bottom, #0a0a0a, #1b3d1b);
       color: #fff;
       line-height: 1.7;
       padding: 20px;
@@ -40,6 +40,65 @@
       font-size: 14px;
       text-align: center;
       color: #aaa;
+    }
+
+    /* Thought Sender Form Styling */
+    .form-section {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 30px;
+      background: rgba(20, 20, 20, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00ffcc33;
+      animation: glowBox 2s infinite alternate;
+    }
+
+    @keyframes glowBox {
+      0% { box-shadow: 0 0 10px #00ffcc44; }
+      100% { box-shadow: 0 0 20px #00ffcc99; }
+    }
+
+    .form-section h2 {
+      font-size: 28px;
+      color: #00ffcc;
+      text-align: center;
+    }
+
+    .form-section p {
+      font-size: 18px;
+      color: #aaa;
+      text-align: center;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #00ffcc44;
+      background-color: #111;
+      color: #fff;
+      font-size: 16px;
+      resize: vertical;
+      box-shadow: 0 0 5px #00ffcc55;
+    }
+
+    a#sendEmail {
+      display: block;
+      width: fit-content;
+      margin: 20px auto 0;
+      background: linear-gradient(45deg, #00ffcc, #00bfa5);
+      color: #000;
+      padding: 12px 30px;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    a#sendEmail:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00ffccaa;
     }
   </style>
 </head>
@@ -87,16 +146,35 @@
       + Video Funnel → ₹₹₹</code></p>
   </div>
 
-  <div class="section">
-    <h2>📣 Bonus Suggestion</h2>
-    <p>Instagram वर reels टाकून views मिळतात, पण LinkedIn वर विचार मांडून मान मिळतो.</p>
-    <p><strong>Reels + Reach + Respect + Funnel = Brand.</strong></p>
-    <p>सुरवात करूया का तुझ्याच आवाजात एकदम? ✊</p>
+  <!-- Thought Sender Form -->
+  <div class="form-section">
+    <h2>📝 तुमचे विचार शेअर करा</h2>
+    <p>बिझनेस, डिजिटल कोचिंग किंवा एखादा आयडिया — तुमच्या मनात काही सॉलिड विचार असतील, तर आम्हाला शेअर करा!</p>
+
+    <textarea id="userMessage" placeholder="तुमचे विचार इथे लिहा..." rows="6"></textarea>
+
+    <a id="sendEmail" href="#" onclick="sendThought()">📩 Send</a>
   </div>
 
   <div class="footer">
     © 2025 DigitalConfVisions · Created with ❤️ by Pritam Jagtap
   </div>
+
+  <script>
+    function sendThought() {
+      const message = document.getElementById("userMessage").value.trim();
+      if (!message) {
+        alert("कृपया काहीतरी लिहा आधी!");
+        return;
+      }
+
+      const email = "jagtappreet73@gmail.com";
+      const subject = encodeURIComponent("नवीन विचार – DigitalConfVisions");
+      const body = encodeURIComponent("विचार:\n\n" + message);
+      const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;
+    }
+  </script>
 
 </body>
 </html>
