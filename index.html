@@ -1,391 +1,92 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mi Kay Karto – LinkedIn Explained + Book CTA</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>टेलीकॉलिंग और सेल्स ट्रेनिंग गाइड</title>
   <style>
-    :root{
-      --bg:#0a0a0a;
-      --card:#141414;
-      --cyan:#00ffcc;
-      --cyan-30:#00ffcc33;
-      --cyan-60:#00ffcc99;
-      --pink:#ff00aa;
-      --pink-15:#ff00aa22;
-      --pink-50:#ff00aa88;
-      --text:#ffffff;
-      --muted:#cccccc;
-      --shadow:0 0 20px var(--cyan-30);
-      --radius:20px;
-      --maxw:980px;
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #222;
     }
-
-    /* Base */
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 20% -10%, #0ef 0%, transparent 60%),
-        radial-gradient(900px 500px at 120% 10%, #f0a 0%, transparent 50%),
-        var(--bg);
-      background-attachment: fixed;
+    h3, h4 {
+      color: #1a1a1a;
     }
-    a{ color:inherit; }
-
-    /* Hero */
-    .hero{
-      position:relative;
-      max-width:var(--maxw);
-      margin:32px auto 0;
-      padding:24px;
+    h3 {
+      margin-top: 30px;
     }
-    .hero-inner{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:24px;
-      padding:28px;
-      background:rgba(20,20,20,.85);
-      border:1px solid var(--cyan-30);
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
+    h4 {
+      margin-top: 20px;
     }
-    .hero .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:14px;
-      padding:8px 12px;
-      border:1px dashed var(--cyan);
-      border-radius:999px;
-      color:var(--cyan);
-      background: #001f1b;
+    p {
+      margin: 10px 0;
     }
-    .hero h1{
-      margin:14px 0 10px;
-      font-size: clamp(26px, 3vw, 40px);
-      line-height:1.2;
-      color:var(--text);
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
     }
-    .hero p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:clamp(15px, 2vw, 18px);
-      line-height:1.6;
+    .highlight {
+      font-weight: bold;
     }
-    .cta-row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:12px 22px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:700;
-      transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
-      cursor:pointer;
-      user-select:none;
-      border:0;
-    }
-    .btn-primary{
-      background: linear-gradient(45deg, var(--cyan), #00bfa5);
-      color:#001612;
-      box-shadow:0 0 18px var(--cyan-60);
-    }
-    .btn-primary:hover{ transform: translateY(-1px) scale(1.02); }
-    .btn-ghost{
-      border:1px solid var(--cyan-30);
-      color:var(--text);
-      background:#101010;
-    }
-    .hero-art{
-      position:relative;
-      aspect-ratio: 16/12;
-      border-radius:16px;
-      background:
-        radial-gradient(60% 60% at 70% 40%, #072 0%, transparent 70%),
-        radial-gradient(50% 50% at 40% 70%, #203 0%, transparent 70%),
-        #0b0b0b;
-      border:1px solid #1d1d1d;
-      overflow:hidden;
-    }
-    .book{
-      position:absolute;
-      right:6%;
-      bottom:6%;
-      width:min(52%, 320px);
-      aspect-ratio: 3/4;
-      background:
-        linear-gradient(180deg, #0e0e10, #0a0a0d);
-      border:1px solid #2a2a2a;
-      border-radius:8px;
-      box-shadow: 0 10px 40px #000, 0 0 30px #00ffc820;
-      display:flex;
-      padding:18px;
-      align-items:flex-end;
-      justify-content:center;
-      text-align:center;
-    }
-    .book-title{
-      font-weight:800;
-      letter-spacing:.5px;
-      color:#f4f6f7;
-      font-size:clamp(12px, 1.5vw, 14px);
-      line-height:1.4;
-    }
-    .key-glow{
-      position:absolute;
-      left:4%;
-      top:8%;
-      width:min(48%, 340px);
-      aspect-ratio: 3/2;
-      border-radius:14px;
-      background:
-        radial-gradient(40% 40% at 50% 50%, rgba(255,222,120,.9) 0%, rgba(255,196,0,.35) 35%, rgba(255,196,0,0) 70%),
-        radial-gradient(80% 80% at 20% 10%, rgba(0,255,204,.35) 0%, transparent 70%);
-      filter: blur(1px) saturate(120%);
-      box-shadow: inset 0 0 40px rgba(255,200,0,.3);
-      outline:1px dashed #ffd64a55;
-      outline-offset:-8px;
-    }
-
-    /* Sections */
-    .section{
-      max-width:800px;
-      margin:60px auto;
-      padding:30px;
-      background:rgba(20,20,20,0.85);
-      border-radius:20px;
-      box-shadow:0 0 20px var(--cyan-30);
-      border:1px solid var(--cyan-30);
-      animation: glowBox 2s infinite alternate;
-    }
-    @keyframes glowBox{
-      0%{ box-shadow:0 0 10px #00ffcc44; }
-      100%{ box-shadow:0 0 20px #00ffcc99; }
-    }
-    h2{
-      font-size:28px;
-      color:var(--cyan);
-      text-align:center;
-      margin-top:0;
-    }
-    p{
-      font-size:18px;
-      color:var(--muted);
-      text-align:center;
-      line-height:1.7;
-    }
-    ul{
-      width:fit-content;
-      margin:12px auto 0;
-      padding-left:18px;
-      color:var(--muted);
-      line-height:1.8;
-    }
-
-    /* Form */
-    textarea{
-      width:100%;
-      padding:15px;
-      border-radius:10px;
-      border:2px solid #00ffcc44;
-      background-color:#111;
-      color:#fff;
-      font-size:16px;
-      resize:vertical;
-      box-shadow:0 0 5px #00ffcc55 inset;
-    }
-    a#sendEmail{
-      display:block;
-      width:fit-content;
-      margin:20px auto 0;
-      background: linear-gradient(45deg, var(--cyan), #00bfa5);
-      color:#001612;
-      padding:12px 30px;
-      font-weight:700;
-      font-size:18px;
-      border-radius:12px;
-      text-decoration:none;
-      transition: transform .2s ease, box-shadow .3s ease;
-      box-shadow: 0 0 15px var(--cyan-60);
-    }
-    a#sendEmail:hover{
-      transform: scale(1.05);
-      box-shadow:0 0 20px var(--cyan-60);
-    }
-
-    /* Mi Kay Karto box */
-    .mi-kay-karto{
-      width: min(100%, 420px);
-      margin:50px auto;
-      padding:20px;
-      background: var(--pink-15);
-      border:2px solid var(--pink-50);
-      box-shadow:0 0 20px var(--pink);
-      border-radius:12px;
-      text-align:center;
-    }
-    .mi-kay-karto p{
-      font-size:16px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      color:#ffccff;
-      margin-bottom:10px;
-    }
-    .mi-kay-karto a{
-      display:inline-block;
-      background:var(--pink);
-      color:#fff;
-      text-decoration:none;
-      font-weight:700;
-      padding:10px 20px;
-      border-radius:8px;
-      box-shadow:0 0 12px #ff00aaaa;
-      transition: transform .15s ease;
-    }
-    .mi-kay-karto a:hover{
-      transform: translateY(-1px) scale(1.03);
-      box-shadow:0 0 20px #ff00aa;
-    }
-
-    /* Sticky bottom CTA (mobile love) */
-    .sticky-cta{
-      position:fixed;
-      left:12px; right:12px; bottom:14px;
-      display:flex; gap:10px; justify-content:center;
-      z-index:50;
-      pointer-events:none;
-    }
-    .sticky-cta .btn{ pointer-events:auto; }
-
-    /* Responsive */
-    @media (max-width: 860px){
-      .hero-inner{ grid-template-columns:1fr; }
-      .book{ right:5%; bottom:6%; width:46%; }
-      .key-glow{ width:60%; left:8%; top:10%; }
+    hr {
+      margin: 30px 0;
+      border: none;
+      border-top: 2px solid #ccc;
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO: Book CTA -->
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <span class="badge">📘 Read • Actionable • 2025</span>
-        <h1>Actionable <span style="color:var(--cyan)">Digital Marketing</span> Book — वाचा आत्ताच</h1>
-        <p>
-          2025 मध्ये <strong>digital visibility = survival</strong>. हे पुस्तक तुम्हाला
-          <em>जर्गनशिवाय</em> स्टेप-बाय-स्टेप मार्ग दाखवते: SEO 📈, LinkedIn Ads 💼, Content जे विकते 🧲,
-          आणि लीड्सना क्लायंटमध्ये बदलण्याची कला 🤝.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://amzn.in/d/fanWfIS" target="_blank" rel="noopener">
-            📖 Read Actionable Digital Marketing Book Now
-          </a>
-          <a class="btn btn-ghost" href="#linkedin-info">ℹ️ काय शिकाल?</a>
-        </div>
-      </div>
+<h3>टेलीकॉलिंग और सेल्स में महारत हासिल करें: आपकी सफलता का ब्लूप्रिंट</h3>
+<p><span class="highlight">क्या आप एक टेलीकॉलर, सेल्स एग्जीक्यूटिव, बीपीओ एजेंट, या कस्टमर सपोर्ट प्रोफेशनल हैं जो अपनी स्किल्स को अगले लेवल पर ले जाना चाहते हैं? क्या आप एक कॉर्पोरेट ट्रेनर हैं जो अपनी टीम को जीतना सिखाना चाहते हैं?</span> यदि हाँ, तो यह आपके लिए है।</p>
 
-      <div class="hero-art" aria-hidden="true">
-        <div class="key-glow"></div>
-        <div class="book">
-          <div class="book-title">
-            ACTIONABLE GUIDE<br/>FOR DIGITAL MARKETING<br/>BEGINNERS
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+<hr>
 
-  <!-- SECTION 1: What is LinkedIn -->
-  <div id="linkedin-info" class="section">
-    <h2>💼 LinkedIn म्हणजे काय?</h2>
-    <p>
-      LinkedIn ही एक प्रोफेशनल सोशल मीडिया प्लॅटफॉर्म आहे जिथे लोक आपली
-      <strong>कामाची ओळख, स्किल्स, प्रोजेक्ट्स</strong> आणि बिझनेस सर्विसेस दाखवतात.
-      <br/><br/>
-      2025 मध्ये LinkedIn म्हणजे <strong>डिजिटल व्यवसायाच्या संधी</strong>चा दरवाजा.
-    </p>
-    <p>
-      🔍 तुमचा प्रोडक्ट, सेवा, किंवा सर्जनशीलता लोकांपर्यंत पोचवण्यासाठी LinkedIn हा
-      <strong>professional visibility</strong> साठी सर्वोत्तम मार्ग.
-    </p>
-    <p>
-      💰 अनेक लोक LinkedIn वरून <strong>freelance deals, brand collabs, job offers</strong> आणि
-      content marketing द्वारे पैसा कमवतात.
-    </p>
-    <p>
-      🧠 खरं सांगायचं झालं, तर LinkedIn वर success मिळवण्यासाठी लागतात:
-    </p>
-    <ul>
-      <li>✅ स्पष्ट profile</li>
-      <li>✅ दर्जेदार पोस्ट्स</li>
-      <li>✅ consistent personal branding</li>
-    </ul>
-    <p>हे केल्यासच कनेक्शन्समधून लोक ग्राहक बनतात.</p>
-  </div>
+<h4>📘 आपको क्या मिलेगा?</h4>
+<p>पेश है एक संपूर्ण ट्रेनिंग ब्लूप्रिंट, जो एक डाउनलोड करने योग्य PDF गाइड के रूप में उपलब्ध है। यह सिर्फ एक किताब नहीं, बल्कि टेलीकॉलिंग प्रोफेशनल्स के लिए तैयार किया गया एक एक्शन-ओरिएंटेड प्रोग्राम है। इसका लक्ष्य आपको कॉल हैंडलिंग में माहिर बनाना, कन्वर्जन रेट बढ़ाना और ग्राहकों का अटूट विश्वास जीतना है। चाहे आप अपनी टीम को ट्रेनिंग दे रहे हों या अपनी खुद की स्किल्स को निखार रहे हों, यह प्रोग्राम आपको एक व्यावहारिक और संरचित दृष्टिकोण प्रदान करता है।</p>
 
-  <!-- SECTION 2: विचार पाठवा -->
-  <div class="section">
-    <h2>📝 तुमचे विचार शेअर करा</h2>
-    <p>बिझनेस, डिजिटल कोचिंग किंवा एखादा भन्नाट विचार – तुम्ही आम्हाला पाठवू शकता.</p>
-    <textarea id="userMessage" placeholder="तुमचे विचार इथे लिहा..." rows="6"></textarea>
-    <a id="sendEmail" href="#" onclick="sendThought()">📩 Send</a>
-  </div>
+<hr>
 
-  <!-- SECTION 3: Mi Kay Karto -->
-  <div class="mi-kay-karto">
-    <p>📎 View my LinkedIn profile to see what services I provide and what products I'm working on:</p>
-    <a href="https://www.linkedin.com/in/pritam-jagtap-00010b216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener">
-      🌐 Open LinkedIn Profile
-    </a>
-  </div>
+<h4>📌 इस गाइड में आप क्या सीखेंगे?</h4>
+<ul>
+  <li><strong>पहली घंटी में जादू: एक दमदार फर्स्ट इंप्रेशन कैसे बनाएं</strong><br>ग्राहक का ध्यान तुरंत आकर्षित करने की कला सीखें।</li>
+  <li><strong>ग्राहक के मन को पढ़ें: सही सवाल पूछकर उनकी ज़रूरतों को समझें</strong><br>ऐसी तकनीकें जो आपको बताएंगी कि ग्राहक वास्तव में क्या चाहता है।</li>
+  <li><strong>समस्या का समाधान बनें: अपने प्रोडक्ट को क्लाइंट की ज़रूरतों से जोड़ें</strong><br>एक सलाहकार के रूप में अपने समाधान पेश करें, सेल्समैन के रूप में नहीं।</li>
+  <li><strong>आपत्तियों को अवसरों में बदलें: पेशेवर तरीके से हर 'ना' को 'हाँ' में बदलें</strong><br>ग्राहक की हिचकिचाहट को दूर करने के सिद्ध तरीके।</li>
+  <li><strong>डील क्लोज करें: सिर्फ़ दिलचस्पी को पक्की बिक्री में बदलें</strong><br>वे मनोवैज्ञानिक ट्रिगर्स जो ग्राहक को "हाँ" कहने पर मजबूर करते हैं।</li>
+  <li><strong>रिश्ते जो टिकते हैं: रेफरल और रिपीट बिजनेस के लिए स्थायी संबंध बनाएं</strong><br>ग्राहक को एक लॉयल फैन में बदलने की रणनीति।</li>
+  <li><strong>विश्वास की कला: स्वाभाविक रूप से ग्राहकों से जुड़ें</strong><br>रैपो बिल्डिंग की शक्तिशाली तकनीकें जो तुरंत विश्वास पैदा करती हैं।</li>
+  <li><strong>ग्राहक को पहचानें: अलग-अलग व्यक्तित्वों के साथ संवाद शैली को अनुकूलित करें</strong><br>हर तरह के ग्राहक को संभालने का रहस्य जानें।</li>
+  <li><strong>एक प्रभावी सेल्स पिच: अपने संदेश को प्रभाव के साथ संरचित करें</strong><br>ऐसी पिच तैयार करें जिसे ग्राहक अनसुना न कर सके।</li>
+  <li><strong>वन-कॉल क्लोजर और समय पर फॉलो-अप: कुशलता से डील पक्की करें</strong><br>समय की बर्बादी को रोकें और हर बातचीत को परिणाम तक पहुंचाएं।</li>
+</ul>
 
-  <!-- Sticky bottom CTA -->
-  <div class="sticky-cta">
-    <a class="btn btn-primary" href="https://amzn.in/d/fanWfIS" target="_blank" rel="noopener">🚀 Read the Book Now</a>
-    <a class="btn btn-ghost" href="#linkedin-info">👀 Learn More</a>
-  </div>
+<hr>
 
-  <script>
-    // Email sender
-    function sendThought() {
-      const message = document.getElementById("userMessage").value.trim();
-      if (!message) {
-        alert("कृपया तुमचे विचार लिहा आधी!");
-        return;
-      }
-      const email = "jagtappreet73@gmail.com";
-      const subject = encodeURIComponent("नवीन विचार – DigitalConfVisions");
-      const body = encodeURIComponent("विचार:\n\n" + message);
-      const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
-      window.location.href = mailtoLink;
-    }
+<h4>💼 आपके ट्रेनर के बारे में</h4>
+<p><strong>संजय संपत खांडीज़ोद</strong> – सेल्स, मार्केटिंग और कस्टमर सर्विस में 13 से अधिक वर्षों के अनुभव के साथ, संजय अपने साथ उद्योग का गहरा ज्ञान लेकर आए हैं। उन्होंने <strong>रिलायंस, WNS, विप्रो, और एजिस</strong> जैसे बड़े ब्रांडों के साथ काम किया है और अपनी विशेषज्ञता के लिए कई पुरस्कार जीते हैं।</p>
 
-    // Mild entrance effect
-    const observeFade = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.style.transform="translateY(0)"; e.target.style.opacity="1"; }
-      });
-    }, {threshold: .12});
-    document.querySelectorAll(".section, .hero-inner").forEach(el=>{
-      el.style.opacity="0";
-      el.style.transform="translateY(12px)";
-      el.style.transition="opacity .5s ease, transform .5s ease";
-      observeFade.observe(el);
-    });
-  </script>
+<p>🏅 <strong>उपलब्धियाँ:</strong></p>
+<ul>
+  <li><strong>क्वालिटी चैम्प</strong> - रिलायंस</li>
+  <li><strong>ग्लोबल बेस्ट क्वालिटी एनालिस्ट</strong> - एजिस</li>
+  <li><strong>स्टार ऑफ द मंथ (कई बार)</strong> - विप्रो</li>
+  <li><strong>सिक्स सिग्मा येलो बेल्ट सर्टिफाइड</strong></li>
+  <li><strong>दृढ़ संचार और ग्राहक प्रबंधन के विशेषज्ञ</strong></li>
+</ul>
+
+<hr>
+
+<h4>🔓 आप इसका उपयोग कैसे कर सकते हैं?</h4>
+<ul>
+  <li>अपनी टेलीकॉलिंग/सेल्स टीम को प्रशिक्षित करें।</li>
+  <li>इसे अपने आंतरिक प्रशिक्षण संसाधनों में शामिल करें।</li>
+  <li>अधिक सेल्स कॉल क्लोज करने की तकनीकें सीखें।</li>
+  <li>सेल्स या कस्टमर सपोर्ट की नौकरी के लिए खुद को तैयार करें।</li>
+</ul>
+
 </body>
 </html>
